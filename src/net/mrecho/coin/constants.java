@@ -31,6 +31,20 @@ public class constants {
 		
 	}//getCoinVolume
 	
+	public static float getCoinValue(Coins coin){
+		
+		switch(coin){
+			case Penny: 	 return (float) 0.01;
+			case Nickel: 	 return (float) 0.05;
+			case Dime: 		 return (float) 0.1;
+			case Quarter: 	 return (float) 0.25;
+			case HalfDollar: return (float) 0.5;
+			case Dollar: 	 return (float) 1.0;
+			default: 		 return 0;
+		}
+		
+	}//getCoinVolume
+	
 	public static int getVolume(){
 		return JarVolume;
 	}

@@ -43,10 +43,12 @@ public class SlotMachine {
 			constants.Coins r = VALUES.get(RANDOM.nextInt(VALUES.size()));
 		
 			if(jar.addCoin(r, 1) == false){
-				//logger.debug(r);
+				full = true;
 			} else {
+				full = true;
 				
 				logger.info(jar.getCoinCount());
+				jar.getTotalValue();
 				
 				break;
 			}

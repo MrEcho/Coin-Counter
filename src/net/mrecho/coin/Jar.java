@@ -1,6 +1,9 @@
 package net.mrecho.coin;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.HashMap;
+import java.util.Map;
 
 import net.mrecho.coin.constants.Coins;
 
@@ -85,6 +88,28 @@ public class Jar {
 		
 		logger.info("Jar Cleared");
 		return reset;
+	}
+	
+	public void getTotalValue(){
+		
+		float totalValue = 0;
+		
+		for(Map.Entry<Coins, Integer> entry : CoinCount.entrySet()){
+			Coins coin = entry.getKey();
+			int count = entry.getValue();
+			
+			// Java ieee floating point issue
+			BigDecimal bd = new BigDecimal((count * constants.getCoinValue(coin)), MathContext.DECIMAL32);
+			bd = bd.setScale(2);
+			float value = bd.floatValue();
+			logger.debug("coin:"+ coin +" count:"+ count + " value:"+ value);
+
+			totalValue = totalValue + value;
+			
+		}
+		
+		logger.debug("Total Value:"+ totalValue);
+		
 	}
 	
 	public HashMap<Coins, Integer> getCoinCount() {
