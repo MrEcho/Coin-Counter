@@ -39,7 +39,24 @@ public class SlotMachine {
 		return totalCount;
 	}
 	
+	public float getTotalValue(){
+		return jar.getTotalValue();
+	}
+	
+	public boolean addCoin(constants.Coins coin, int count){
+		boolean full = false;
+		
+		if(jar.addCoin(coin, count) == false){
+			full = false;
+		} else {
+			full = true;
+		}
+		
+		return full;
+	}
+	
 	public boolean randomFill() {
+		logger.debug("-------------- Random Fill");
 		boolean full = false;
 		clearJar();
 		
@@ -49,96 +66,183 @@ public class SlotMachine {
 		for(int i = 0; Integer.MAX_VALUE > i; i++){
 		
 			constants.Coins r = VALUES.get(RANDOM.nextInt(VALUES.size()));
-		
-			if(jar.addCoin(r, 1) == false){
-				full = true;
-			} else {
-				full = true;
-				
-				logger.info(jar.getCoinCount());
-				jar.getTotalValue();
-				
+			
+			full = addCoin(r, 1);
+			if(full == true){
 				break;
 			}
 		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;
 	}
 	
 	public boolean fillWithPennys() {
+		logger.debug("-------------- Penny");
 		boolean full = false;
 		clearJar();
+		
+		for(int i = 0; Integer.MAX_VALUE > i; i++){
+			full = addCoin(constants.Coins.Penny, 1);
+			if(full == true){
+				break;
+			}
+		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;
 	}
 
-	public boolean putPenny(int penny) {
+	public boolean putPenny(int count, boolean clearjar) {
 		boolean full = false;
+		
+		if(clearjar){ clearJar(); }
+		
+		full = addCoin(constants.Coins.Penny, count);
 		
 		return full;
 	}
 
 	public boolean fillWithNickels() {
+		logger.debug("-------------- Nickel");
 		boolean full = false;
 		clearJar();
+		
+		for(int i = 0; Integer.MAX_VALUE > i; i++){
+			full = addCoin(constants.Coins.Nickel, 1);
+			if(full == true){
+				break;
+			}
+		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;
 	}
 
-	public boolean putNickel(int i) {
+	public boolean putNickel(int count, boolean clearjar) {
 		boolean full = false;
+		
+		if(clearjar){ clearJar(); }
+		
+		full = addCoin(constants.Coins.Nickel, count);
 		
 		return full;
 	}
 
 	public boolean fillWithDimes() {
+		logger.debug("-------------- Dime");
 		boolean full = false;
 		clearJar();
+		
+		for(int i = 0; Integer.MAX_VALUE > i; i++){
+			full = addCoin(constants.Coins.Dime, 1);
+			if(full == true){
+				break;
+			}
+		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;
 	}
 
-	public boolean putDime(int i) {
+	public boolean putDime(int count, boolean clearjar) {
 		boolean full = false;
+		
+		if(clearjar){ clearJar(); }
+		
+		full = addCoin(constants.Coins.Dime, count);
 		
 		return full;
 	}
 
 	public boolean fillWithQuarters() {
+		logger.debug("-------------- Quarter");
 		boolean full = false;
 		clearJar();
+		
+		for(int i = 0; Integer.MAX_VALUE > i; i++){
+			full = addCoin(constants.Coins.Quarter, 1);
+			if(full == true){
+				break;
+			}
+		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;	
 	}
 
-	public boolean putQuarter(int i) {
+	public boolean putQuarter(int count, boolean clearjar) {
 		boolean full = false;
+		
+		if(clearjar){ clearJar(); }
+		
+		full = addCoin(constants.Coins.Quarter, count);
 		
 		return full;	
 	}
 
 	public boolean fillWithHalfDollars() {
+		logger.debug("-------------- Half Dollar");
 		boolean full = false;
 		clearJar();
+		
+		for(int i = 0; Integer.MAX_VALUE > i; i++){
+			full = addCoin(constants.Coins.HalfDollar, 1);
+			if(full == true){
+				break;
+			}
+		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;
 	}
 
-	public boolean putHalfDollar(int i) {
+	public boolean putHalfDollar(int count, boolean clearjar) {
 		boolean full = false;
+		
+		if(clearjar){ clearJar(); }
+		
+		full = addCoin(constants.Coins.HalfDollar, count);
 		
 		return full;	
 	}
 
 	public boolean fillWithDollars() {
+		logger.debug("-------------- Dollar");
 		boolean full = false;
 		clearJar();
+		
+		for(int i = 0; Integer.MAX_VALUE > i; i++){
+			full = addCoin(constants.Coins.Dollar, 1);
+			if(full == true){
+				break;
+			}
+		}
+		
+		logger.info("Coin Count: "+ jar.getCoinCount());
+		logger.info("Total Value: "+ jar.getTotalValue());
 		
 		return full;
 	}
 
-	public boolean putDollar(int i) {
+	public boolean putDollar(int count, boolean clearjar) {
 		boolean full = false;
+		
+		if(clearjar){ clearJar(); }
+		
+		full = addCoin(constants.Coins.Dollar, count);
 		
 		return full;	
 	}

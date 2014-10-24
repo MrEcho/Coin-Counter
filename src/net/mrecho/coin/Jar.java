@@ -83,10 +83,7 @@ public class Jar {
 		CoinCount.put(Coins.Quarter, 0);
 		CoinCount.put(Coins.HalfDollar, 0);
 		CoinCount.put(Coins.Dollar, 0);
-		
-		logger.debug(CoinCount);
-		
-		logger.info("Jar Cleared");
+
 		return reset;
 	}
 	
@@ -102,13 +99,11 @@ public class Jar {
 			BigDecimal bd = new BigDecimal((count * constants.getCoinValue(coin)), MathContext.DECIMAL32);
 			bd = bd.setScale(2);
 			float value = bd.floatValue();
-			logger.debug("coin:"+ coin +" count:"+ count + " value:"+ value);
+			//logger.debug("coin:"+ coin +" count:"+ count + " value:"+ value);
 
 			totalValue = totalValue + value;
-			
 		}
-		
-		logger.debug("Total Value:"+ totalValue);
+		//logger.debug("Total Value:"+ totalValue);
 		
 		return totalValue;
 	}

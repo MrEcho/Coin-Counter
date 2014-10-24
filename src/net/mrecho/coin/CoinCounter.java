@@ -21,22 +21,22 @@ public class CoinCounter {
 	private static void RunTests(SlotMachine machine) {
 		
 		machine.fillWithPennys();
-		machine.putPenny(100);
+		machine.putPenny(100, true);
 		
 		machine.fillWithNickels();
-		machine.putNickel(100);
+		machine.putNickel(100, true);
 		
 		machine.fillWithDimes();
-		machine.putDime(100);
+		machine.putDime(100, true);
 		
 		machine.fillWithQuarters();
-		machine.putQuarter(100);
+		machine.putQuarter(100, true);
 		
 		machine.fillWithHalfDollars();
-		machine.putHalfDollar(100);
+		machine.putHalfDollar(100, true);
 		
 		machine.fillWithDollars();
-		machine.putDollar(100);
+		machine.putDollar(100, true);
 		
 		machine.randomFill();
 	}
