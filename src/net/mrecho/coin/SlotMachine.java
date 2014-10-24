@@ -2,59 +2,20 @@ package net.mrecho.coin;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import org.apache.logging.log4j.Logger;
 
 import net.mrecho.coin.constants.Coins;
 
-public class SlotMachine {
-
-	private Jar jar;
-	private Logger logger;
+public class SlotMachine extends Machine {
 
 	public SlotMachine(Logger logger, Jar coinjar) {
-		this.jar = coinjar;
-		this.logger = logger;
-		this.jar.clearJar();
+		jar = coinjar;
+		logger = logger;
+		jar.clearJar();
 	}
 
-	public Jar getJar(){
-		return this.jar;
-	}
-	
-	public void clearJar(){
-		this.jar.clearJar();
-	}
-	
-	public int getCoinCount(){
-		
-		int totalCount = 0;
-		
-		for(Entry<Coins, Integer> coin : jar.getCoinCount().entrySet()){
-			totalCount = totalCount + coin.getValue();
-		}
-		
-		return totalCount;
-	}
-	
-	public float getTotalValue(){
-		return jar.getTotalValue();
-	}
-	
-	public boolean addCoin(constants.Coins coin, int count){
-		boolean full = false;
-		
-		if(jar.addCoin(coin, count) == false){
-			full = false;
-		} else {
-			full = true;
-		}
-		
-		return full;
-	}
-	
 	public boolean randomFill() {
 		logger.debug("-------------- Random Fill");
 		boolean full = false;
@@ -84,12 +45,7 @@ public class SlotMachine {
 		boolean full = false;
 		clearJar();
 		
-		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(constants.Coins.Penny, 1);
-			if(full == true){
-				break;
-			}
-		}
+		filler(constants.Coins.Penny, 1);
 		
 		logger.info("Coin Count: "+ jar.getCoinCount());
 		logger.info("Total Value: "+ jar.getTotalValue());
@@ -112,12 +68,7 @@ public class SlotMachine {
 		boolean full = false;
 		clearJar();
 		
-		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(constants.Coins.Nickel, 1);
-			if(full == true){
-				break;
-			}
-		}
+		filler(constants.Coins.Nickel, 1);
 		
 		logger.info("Coin Count: "+ jar.getCoinCount());
 		logger.info("Total Value: "+ jar.getTotalValue());
@@ -140,12 +91,7 @@ public class SlotMachine {
 		boolean full = false;
 		clearJar();
 		
-		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(constants.Coins.Dime, 1);
-			if(full == true){
-				break;
-			}
-		}
+		filler(constants.Coins.Dime, 1);
 		
 		logger.info("Coin Count: "+ jar.getCoinCount());
 		logger.info("Total Value: "+ jar.getTotalValue());
@@ -168,12 +114,7 @@ public class SlotMachine {
 		boolean full = false;
 		clearJar();
 		
-		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(constants.Coins.Quarter, 1);
-			if(full == true){
-				break;
-			}
-		}
+		filler(constants.Coins.Quarter, 1);
 		
 		logger.info("Coin Count: "+ jar.getCoinCount());
 		logger.info("Total Value: "+ jar.getTotalValue());
@@ -196,12 +137,7 @@ public class SlotMachine {
 		boolean full = false;
 		clearJar();
 		
-		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(constants.Coins.HalfDollar, 1);
-			if(full == true){
-				break;
-			}
-		}
+		filler(constants.Coins.HalfDollar, 1);
 		
 		logger.info("Coin Count: "+ jar.getCoinCount());
 		logger.info("Total Value: "+ jar.getTotalValue());
@@ -224,12 +160,7 @@ public class SlotMachine {
 		boolean full = false;
 		clearJar();
 		
-		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(constants.Coins.Dollar, 1);
-			if(full == true){
-				break;
-			}
-		}
+		filler(constants.Coins.Dollar, 1);
 		
 		logger.info("Coin Count: "+ jar.getCoinCount());
 		logger.info("Total Value: "+ jar.getTotalValue());

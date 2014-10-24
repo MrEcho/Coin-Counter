@@ -34,12 +34,12 @@ public class constants {
 	public static float getCoinValue(Coins coin){
 		
 		switch(coin){
-			case Penny: 	 return (float) 0.01;
-			case Nickel: 	 return (float) 0.05;
-			case Dime: 		 return (float) 0.1;
-			case Quarter: 	 return (float) 0.25;
-			case HalfDollar: return (float) 0.5;
-			case Dollar: 	 return (float) 1.0;
+			case Penny: 	 return 0.01f;
+			case Nickel: 	 return 0.05f;
+			case Dime: 		 return 0.1f;
+			case Quarter: 	 return 0.25f;
+			case HalfDollar: return 0.5f;
+			case Dollar: 	 return 1.0f;
 			default: 		 return 0;
 		}
 		
