@@ -90,7 +90,7 @@ public class Jar {
 		return reset;
 	}
 	
-	public void getTotalValue(){
+	public float getTotalValue(){
 		
 		float totalValue = 0;
 		
@@ -110,6 +110,7 @@ public class Jar {
 		
 		logger.debug("Total Value:"+ totalValue);
 		
+		return totalValue;
 	}
 	
 	public HashMap<Coins, Integer> getCoinCount() {

@@ -2,6 +2,7 @@ package net.mrecho.coin;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Random;
 
 import org.apache.logging.log4j.Logger;
@@ -27,8 +28,15 @@ public class SlotMachine {
 		this.jar.clearJar();
 	}
 	
-	public void getCoinCount(){
+	public int getCoinCount(){
 		
+		int totalCount = 0;
+		
+		for(Entry<Coins, Integer> coin : jar.getCoinCount().entrySet()){
+			totalCount = totalCount + coin.getValue();
+		}
+		
+		return totalCount;
 	}
 	
 	public boolean randomFill() {
@@ -52,8 +60,6 @@ public class SlotMachine {
 				
 				break;
 			}
-			
-
 		}
 		
 		return full;
