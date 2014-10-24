@@ -20,15 +20,13 @@ public class Jar {
 
 	private HashMap<Coins, Integer> CoinCount = new HashMap<Coins,Integer>(6);
 	
+
 	/**
 	 * 
 	 * @param logger
 	 */
 	public Jar(Logger logger){
-		
 		this.logger = logger;
-		
-		clearJar();
 	}
 	
 	/**
@@ -47,18 +45,12 @@ public class Jar {
 			
 			if(newVolume <= MaxVolume){
 				CurrentVolume = newVolume;
-				
+					
 				int newcount = count + CoinCount.get(coin);
 				CoinCount.put(coin,  newcount);
-				
-				if(CurrentVolume < MaxVolume){
-					full = false;
 					
-					logger.debug("remaining: "+ remainningVolume());
-					
-				} else {
-					full = true;
-				}
+				//logger.debug("remaining: "+ remainningVolume());
+				full = false;
 				
 			} else {
 				full = true;
@@ -70,13 +62,7 @@ public class Jar {
 		
 		return full;
 	}
-	
-	public double remainningVolume(){
-		double remain = MaxVolume - CurrentVolume;
-		
-		return remain;
-	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -88,7 +74,7 @@ public class Jar {
 		CurrentVolume = 0;
 		
 		CoinCount.clear();
-		CoinCount.put(Coins.Cent, 0);
+		CoinCount.put(Coins.Penny, 0);
 		CoinCount.put(Coins.Nickel, 0);
 		CoinCount.put(Coins.Dime, 0);
 		CoinCount.put(Coins.Quarter, 0);
@@ -101,6 +87,14 @@ public class Jar {
 		return reset;
 	}
 	
+	public HashMap<Coins, Integer> getCoinCount() {
+		return CoinCount;
+	}
+	
+	public double remainningVolume(){
+		double remain = MaxVolume - CurrentVolume;
+		return remain;
+	}
 	
 	public double getCurrentVolume() {
 		return CurrentVolume;

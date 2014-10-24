@@ -6,7 +6,7 @@ public class constants {
 	private static int JarVolume = 946353;
 	
 	// http://www.usmint.gov/about_the_mint/?action=coin_specifications
-	private static float Cent = 28.96f;
+	private static float Penny = 28.96f;
 	private static float Nickel = 41.36f;
 	private static float Dime = 24.18f;
 	private static float Quarter = 42.46f;
@@ -14,13 +14,13 @@ public class constants {
 	private static float Dollar = 52.98f;
 	
 	public enum Coins {
-		Cent, Nickel, Dime, Quarter, HalfDollar, Dollar
+		Penny, Nickel, Dime, Quarter, HalfDollar, Dollar
 	}
 	
 	public static float getCoinVolume(Coins coin){
 		
 		switch(coin){
-			case Cent: 		 return Cent;
+			case Penny: 	 return Penny;
 			case Nickel: 	 return Nickel;
 			case Dime: 		 return Dime;
 			case Quarter: 	 return Quarter;
