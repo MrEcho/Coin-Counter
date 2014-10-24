@@ -11,8 +11,8 @@ import net.mrecho.coin.constants.Coins;
 public class SlotMachine extends Machine {
 
 	public SlotMachine(Logger logger, Jar coinjar) {
-		jar = coinjar;
-		logger = logger;
+		this.jar = coinjar;
+		this.logger = logger;
 		jar.clearJar();
 	}
 
