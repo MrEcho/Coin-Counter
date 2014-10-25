@@ -5,10 +5,17 @@ public class constants {
 	// http://www.wolframalpha.com/input/?i=32+fluid+oz+to+cubic+mm
 	private static int JarVolume = 946353;
 	
+	/**
+	 * The valid types of coins
+	 */
 	public enum Coins {
 		Penny, Nickel, Dime, Quarter, HalfDollar, Dollar
 	}
 	
+	/**
+	 * This is used to store the values of the <code>Coins</code>
+	 *
+	 */
 	private enum CoinValues {
 		Penny {
 			public float volume() { return 28.96f; }
@@ -40,6 +47,11 @@ public class constants {
 
 	}
 	
+	/**
+	 * This returns the volume of space of Coins
+	 * @param coin {@link Coins} 
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public static float getCoinVolume(Coins coin){
 		float out = 0;
 
@@ -48,14 +60,23 @@ public class constants {
 		return out;
 	}//getCoinVolume
 	
+	/**
+	 * This returns the coin money value
+	 * @param coin {@link Coins} 
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public static float getCoinValue(Coins coin){
 		float out = 0f;
 		
-		out = CoinValues.valueOf(coin.toString()).volume();
+		out = CoinValues.valueOf(coin.toString()).value();
 		
 		return out;
 	}//getCoinVolume
 	
+	/**
+	 * Returns the static max value of the Jar
+	 * @return
+	 */
 	public static int getVolume(){
 		return JarVolume;
 	}

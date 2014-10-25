@@ -8,6 +8,10 @@ import org.apache.logging.log4j.Logger;
 
 import net.mrecho.coin.constants.Coins;
 
+/**
+ * 
+ *
+ */
 public class SlotMachine extends Machine {
 
 	public SlotMachine(Logger logger, Jar coinjar) {
@@ -15,7 +19,11 @@ public class SlotMachine extends Machine {
 		this.logger = logger;
 		jar.clearJar();
 	}
-
+	
+	/**
+	 * This is used to randomly fill up the Jar with random {@link Coins}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean randomFill() {
 		logger.debug("-------------- Random Fill");
 		boolean full = false;
@@ -40,6 +48,10 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 	
+	/**
+	 * Used to fill the Jar with all {@link Coins.Penny}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean fillWithPennys() {
 		logger.debug("-------------- Penny");
 		boolean full = false;
@@ -53,6 +65,12 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * 
+	 * @param count How many {@link Coins} you want in the Jar
+	 * @param clearjar To reset the Jar to an empty state
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean putPenny(int count, boolean clearjar) {
 		boolean full = false;
 		
@@ -63,6 +81,10 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * Used to fill the Jar with all {@link Coins.Nickel}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean fillWithNickels() {
 		logger.debug("-------------- Nickel");
 		boolean full = false;
@@ -76,6 +98,12 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * 
+	 * @param count How many {@link Coins} you want in the Jar
+	 * @param clearjar To reset the Jar to an empty state
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean putNickel(int count, boolean clearjar) {
 		boolean full = false;
 		
@@ -86,6 +114,10 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * Used to fill the Jar with all {@link Coins.Dime}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean fillWithDimes() {
 		logger.debug("-------------- Dime");
 		boolean full = false;
@@ -99,6 +131,12 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * 
+	 * @param count How many {@link Coins} you want in the Jar
+	 * @param clearjar To reset the Jar to an empty state
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean putDime(int count, boolean clearjar) {
 		boolean full = false;
 		
@@ -109,6 +147,10 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * Used to fill the Jar with all {@link Coins.Quarter}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean fillWithQuarters() {
 		logger.debug("-------------- Quarter");
 		boolean full = false;
@@ -122,6 +164,12 @@ public class SlotMachine extends Machine {
 		return full;	
 	}
 
+	/**
+	 * 
+	 * @param count How many {@link Coins} you want in the Jar
+	 * @param clearjar To reset the Jar to an empty state
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean putQuarter(int count, boolean clearjar) {
 		boolean full = false;
 		
@@ -132,6 +180,10 @@ public class SlotMachine extends Machine {
 		return full;	
 	}
 
+	/**
+	 * Used to fill the Jar with all {@link Coins.HalfDollar}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean fillWithHalfDollars() {
 		logger.debug("-------------- Half Dollar");
 		boolean full = false;
@@ -145,6 +197,12 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * 
+	 * @param count How many {@link Coins} you want in the Jar
+	 * @param clearjar To reset the Jar to an empty state
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean putHalfDollar(int count, boolean clearjar) {
 		boolean full = false;
 		
@@ -155,6 +213,10 @@ public class SlotMachine extends Machine {
 		return full;	
 	}
 
+	/**
+	 * Used to fill the Jar with all {@link Coins.Dollar}
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean fillWithDollars() {
 		logger.debug("-------------- Dollar");
 		boolean full = false;
@@ -168,6 +230,12 @@ public class SlotMachine extends Machine {
 		return full;
 	}
 
+	/**
+	 * 
+	 * @param count How many {@link Coins} you want in the Jar
+	 * @param clearjar To reset the Jar to an empty state
+	 * @return <code>true</code> or <code>false</code>
+	 */
 	public boolean putDollar(int count, boolean clearjar) {
 		boolean full = false;
 		

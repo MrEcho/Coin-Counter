@@ -18,6 +18,10 @@ public class CoinCounter {
 		RunTests(machine);
 	}
 	
+	/**
+	 * Testing all the different types of {@link constants.Coins} that are possible
+	 * @param machine
+	 */
 	private static void RunTests(SlotMachine machine) {
 		
 		machine.fillWithPennys();
@@ -41,6 +45,9 @@ public class CoinCounter {
 		machine.randomFill();
 	}
 
+	/**
+	 * Setup basic logging for the whole system
+	 */
 	private static void logging(){
 
 		System.setProperty("log4j.configurationFile", "./libs/log4j2.xml");

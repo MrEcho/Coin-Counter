@@ -21,9 +21,9 @@ public class Jar {
 	private int MaxVolume = 0;
 	private float CurrentVolume = 0;
 
+	// The list of coins used and how many
 	private HashMap<Coins, Integer> CoinCount = new HashMap<Coins,Integer>(6);
 	
-
 	/**
 	 * 
 	 * @param logger
@@ -33,10 +33,12 @@ public class Jar {
 	}
 	
 	/**
+	 * This adds the type of {@link Coins} to this Jar.
+	 * And keeps track of the different types of coins used.
 	 * 
-	 * @param coin
-	 * @param count
-	 * @return
+	 * @param coin {@link Coins}
+	 * @param count How many Coins you want added at a time
+	 * @return <code>true</code> or <code>false</code>
 	 */
 	public boolean addCoin(Coins coin,int count){
 		boolean full = false;
@@ -67,8 +69,8 @@ public class Jar {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * This is used to reset the Jar
+	 * @return <code>true</code> or <code>false</code>
 	 */
 	public boolean clearJar(){
 		boolean reset = false;
@@ -87,6 +89,10 @@ public class Jar {
 		return reset;
 	}
 	
+	/**
+	 * Counts up the total money value of all {@link Coins} that are stored in this Jar
+	 * @return <code>float</code>
+	 */
 	public float getTotalValue(){
 		
 		float totalValue = 0;
@@ -108,19 +114,35 @@ public class Jar {
 		return totalValue;
 	}
 	
+	/**
+	 * Returns the HashMap of the current coins in the Jar
+	 * @return
+	 */
 	public HashMap<Coins, Integer> getCoinCount() {
 		return CoinCount;
 	}
 	
+	/**
+	 * How much is left in the Jar
+	 * @return
+	 */
 	public double remainningVolume(){
 		double remain = MaxVolume - CurrentVolume;
 		return remain;
 	}
 	
+	/**
+	 * The current Volume in the Jar
+	 * @return
+	 */
 	public double getCurrentVolume() {
 		return CurrentVolume;
 	}
 
+	/**
+	 * Reset the Volume of the Jar
+	 * @param currentVolume
+	 */
 	public void setCurrentVolume(float currentVolume) {
 		CurrentVolume = currentVolume;
 	}
