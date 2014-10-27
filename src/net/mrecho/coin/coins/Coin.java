@@ -1,22 +1,20 @@
-package net.mrecho.coin;
+package net.mrecho.coin.coins;
 
-public class constants {
+public class Coin {
 
-	// http://www.wolframalpha.com/input/?i=32+fluid+oz+to+cubic+mm
-	private static int JarVolume = 946353;
-	
-	/**
-	 * The valid types of coins
-	 */
-	public enum Coins {
-		Penny, Nickel, Dime, Quarter, HalfDollar, Dollar
+	private CoinTypes type;
+	private String name;
+
+	public Coin(CoinTypes type){
+		this.type = type;
+		this.name = type.getName();
 	}
 	
 	/**
 	 * This is used to store the values of the <code>Coins</code>
 	 *
 	 */
-	private enum CoinValues {
+	public enum CoinValues {
 		Penny {
 			public float volume() { return 28.96f; }
 			public float value()  { return 0.01f; }
@@ -42,8 +40,8 @@ public class constants {
 			public float value()  { return 1.0f; }
 		};
 		
-		abstract float volume();
-		abstract float value();
+		public abstract float volume();
+		public abstract float value();
 
 	}
 	
@@ -52,10 +50,10 @@ public class constants {
 	 * @param coin {@link Coins} 
 	 * @return <code>true</code> or <code>false</code>
 	 */
-	public static float getCoinVolume(Coins coin){
+	public float getCoinVolume(){
 		float out = 0;
 
-		out = CoinValues.valueOf(coin.toString()).volume();
+		out = CoinValues.valueOf(name).volume();
 		
 		return out;
 	}//getCoinVolume
@@ -65,19 +63,15 @@ public class constants {
 	 * @param coin {@link Coins} 
 	 * @return <code>true</code> or <code>false</code>
 	 */
-	public static float getCoinValue(Coins coin){
+	public float getCoinValue(){
 		float out = 0f;
 		
-		out = CoinValues.valueOf(coin.toString()).value();
+		out = CoinValues.valueOf(name).value();
 		
 		return out;
 	}//getCoinVolume
 	
-	/**
-	 * Returns the static max value of the Jar
-	 * @return
-	 */
-	public static int getVolume(){
-		return JarVolume;
+	public String getName(){
+		return this.name;
 	}
 }

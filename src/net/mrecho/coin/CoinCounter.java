@@ -1,5 +1,8 @@
 package net.mrecho.coin;
 
+import net.mrecho.coin.coins.Coin;
+import net.mrecho.coin.coins.CoinTypes;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,26 +27,22 @@ public class CoinCounter {
 	 */
 	private static void RunTests(SlotMachine machine) {
 		
-		machine.fillWithPennys();
-		machine.putPenny(100, true);
+		machine.fill(new Coin(CoinTypes.Penny));
 		
-		machine.fillWithNickels();
-		machine.putNickel(100, true);
+		machine.fill(new Coin(CoinTypes.Nickel));
 		
-		machine.fillWithDimes();
-		machine.putDime(100, true);
+		machine.fill(new Coin(CoinTypes.Dime));
 		
-		machine.fillWithQuarters();
-		machine.putQuarter(100, true);
+		machine.fill(new Coin(CoinTypes.Quarter));
 		
-		machine.fillWithHalfDollars();
-		machine.putHalfDollar(100, true);
+		machine.fill(new Coin(CoinTypes.HalfDollar));
 		
-		machine.fillWithDollars();
-		machine.putDollar(100, true);
+		machine.fill(new Coin(CoinTypes.Dollar));
 		
 		machine.randomFill();
+		
 	}
+
 
 	/**
 	 * Setup basic logging for the whole system

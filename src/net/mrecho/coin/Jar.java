@@ -5,7 +5,8 @@ import java.math.MathContext;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.mrecho.coin.constants.Coins;
+import net.mrecho.coin.coins.Coin;
+import net.mrecho.coin.coins.Coin.CoinValues;
 
 import org.apache.logging.log4j.Logger;
 
@@ -18,11 +19,13 @@ public class Jar {
 
 	private Logger logger;
 	
+	private static int JarVolume = 946353;
+	
 	private int MaxVolume = 0;
 	private float CurrentVolume = 0;
 
 	// The list of coins used and how many
-	private HashMap<Coins, Integer> CoinCount = new HashMap<Coins,Integer>(6);
+	private HashMap<String, Integer> CoinCount = new HashMap<String,Integer>(6);
 	
 	/**
 	 * 
@@ -40,19 +43,19 @@ public class Jar {
 	 * @param count How many Coins you want added at a time
 	 * @return <code>true</code> or <code>false</code>
 	 */
-	public boolean addCoin(Coins coin,int count){
+	public boolean addCoin(Coin coin,int count){
 		boolean full = false;
 		
 		if(CurrentVolume < MaxVolume){
 			
-			float coinVolume = (constants.getCoinVolume(coin) * count);
+			float coinVolume = (coin.getCoinVolume() * count);
 			float newVolume = CurrentVolume + coinVolume;
 			
 			if(newVolume <= MaxVolume){
 				CurrentVolume = newVolume;
 					
-				int newcount = count + CoinCount.get(coin);
-				CoinCount.put(coin,  newcount);
+				int newcount = count + CoinCount.get(coin.getName());
+				CoinCount.put(coin.getName(),  newcount);
 					
 				//logger.debug("remaining: "+ remainningVolume());
 				full = false;
@@ -75,16 +78,17 @@ public class Jar {
 	public boolean clearJar(){
 		boolean reset = false;
 		
-		MaxVolume = constants.getVolume();
+		MaxVolume = JarVolume;
 		CurrentVolume = 0;
 		
 		CoinCount.clear();
-		CoinCount.put(Coins.Penny, 0);
-		CoinCount.put(Coins.Nickel, 0);
-		CoinCount.put(Coins.Dime, 0);
-		CoinCount.put(Coins.Quarter, 0);
-		CoinCount.put(Coins.HalfDollar, 0);
-		CoinCount.put(Coins.Dollar, 0);
+		CoinCount.put("Penny", 0);
+		CoinCount.put("Nickel", 0);
+		CoinCount.put("Dime", 0);
+		CoinCount.put("Quarter", 0);
+		CoinCount.put("HalfDollar", 0);
+		CoinCount.put("Dollar", 0);
+		
 
 		return reset;
 	}
@@ -97,12 +101,12 @@ public class Jar {
 		
 		float totalValue = 0;
 		
-		for(Map.Entry<Coins, Integer> entry : CoinCount.entrySet()){
-			Coins coin = entry.getKey();
+		for(Map.Entry<String, Integer> entry : CoinCount.entrySet()){
+			String coinString = entry.getKey();
 			int count = entry.getValue();
 			
 			// Java ieee floating point issue
-			BigDecimal bd = new BigDecimal((count * constants.getCoinValue(coin)), MathContext.DECIMAL32);
+			BigDecimal bd = new BigDecimal((count * CoinValues.valueOf(coinString).value() ), MathContext.DECIMAL32);
 			bd = bd.setScale(2);
 			float value = bd.floatValue();
 			//logger.debug("coin:"+ coin +" count:"+ count + " value:"+ value);
@@ -118,7 +122,7 @@ public class Jar {
 	 * Returns the HashMap of the current coins in the Jar
 	 * @return
 	 */
-	public HashMap<Coins, Integer> getCoinCount() {
+	public HashMap<String, Integer> getCoinCount() {
 		return CoinCount;
 	}
 	
