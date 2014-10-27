@@ -74,4 +74,8 @@ public class Coin {
 	public String getName(){
 		return this.name;
 	}
+	
+	public CoinTypes getType(){
+		return this.type;
+	}
 }
