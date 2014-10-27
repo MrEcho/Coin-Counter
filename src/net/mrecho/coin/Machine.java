@@ -2,7 +2,7 @@ package net.mrecho.coin;
 
 import org.apache.logging.log4j.Logger;
 
-import net.mrecho.coin.coins.Coin;
+import net.mrecho.coin.coins.CoinTypes;
 
 /**
  * Low level logic of the SlotMachine
@@ -49,14 +49,14 @@ public class Machine {
 
 	/**
 	 * This is used to add a <code>int</code> amount of {@link Coins#coin}
-	 * @param coin {@link Coins}
+	 * @param cointype {@link Coins}
 	 * @param count How many Coins you want added at a time
 	 * @return <code>true</code> or <code>false</code>
 	 */
-	public boolean addCoin(Coin coin, int count) {
+	public boolean addCoin(CoinTypes cointype, int count) {
 		boolean full = false;
 		
-		if(jar.addCoin(coin, count) == false){
+		if(jar.addCoin(cointype, count) == false){
 			full = false;
 		} else {
 			full = true;
@@ -67,15 +67,15 @@ public class Machine {
 
 	/**
 	 * This is used to fill up the Jar with a single {@link Coins#coin}
-	 * @param coin {@link Coins}
+	 * @param cointype {@link Coins}
 	 * @param count How many Coins you want added at a time
 	 * @return <code>true</code> or <code>false</code>
 	 */
-	public boolean filler(Coin coin, int count){
+	public boolean filler(CoinTypes cointype, int count){
 		boolean full = false;
 		
 		for(int i = 0; Integer.MAX_VALUE > i; i++){
-			full = addCoin(coin, count);
+			full = addCoin(cointype, count);
 			if(full == true){
 				break;
 			}

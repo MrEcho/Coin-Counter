@@ -1,7 +1,9 @@
 package net.mrecho.coin;
 
-import net.mrecho.coin.coins.Coin;
+import java.util.ArrayList;
+
 import net.mrecho.coin.coins.CoinTypes;
+import net.mrecho.coin.coins.types.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,19 +29,27 @@ public class CoinCounter {
 	 */
 	private static void RunTests(SlotMachine machine) {
 		
-		machine.fill(new Coin(CoinTypes.Penny));
+		machine.fill(new Penny());
 		
-		machine.fill(new Coin(CoinTypes.Nickel));
+		machine.fill(new Nickel());
 		
-		machine.fill(new Coin(CoinTypes.Dime));
+		machine.fill(new Dime());
 		
-		machine.fill(new Coin(CoinTypes.Quarter));
+		machine.fill(new Quarter());
 		
-		machine.fill(new Coin(CoinTypes.HalfDollar));
+		machine.fill(new HalfDollar());
 		
-		machine.fill(new Coin(CoinTypes.Dollar));
+		machine.fill(new Dollar());
 		
-		machine.randomFill();
+		ArrayList<CoinTypes> coins = new ArrayList<CoinTypes>();
+		coins.add(new Penny());
+		coins.add(new Nickel());
+		coins.add(new Dime());
+		coins.add(new Quarter());
+		coins.add(new HalfDollar());
+		coins.add(new Dollar());
+		
+		machine.randomFill(coins);
 		
 	}
 

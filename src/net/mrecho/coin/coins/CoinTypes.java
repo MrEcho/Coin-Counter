@@ -1,21 +1,14 @@
 package net.mrecho.coin.coins;
 
-public enum CoinTypes {
-	Penny("Penny"), 
-	Nickel("Nickel"), 
-	Dime("Dime"), 
-	Quarter("Quarter"), 
-	HalfDollar("HalfDollar"), 
-	Dollar("Dollar");
-	
-	private String name;
-	
-	private CoinTypes(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
+public abstract class CoinTypes extends CoinList{
 
+	protected Coins type;
+	
+	public abstract String getName();
+	
+	public abstract float getValue();
+	
+	public abstract float getVolume();
+	
+	public abstract Coins getType();
 }
