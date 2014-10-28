@@ -131,12 +131,11 @@ public class Jar {
 
 			// Java ieee floating point issue
 			try {
-				Float cointypevalue = CoinTypeValue.get(coins);
-				//logger.debug(CoinTypeValue);
-				BigDecimal bd = new BigDecimal((count * cointypevalue ), MathContext.DECIMAL32);
+				Float coinvalue = CoinTypeValue.get(coins);
+				BigDecimal bd = new BigDecimal((count * coinvalue ), MathContext.DECIMAL32);
 				bd = bd.setScale(2);
 				value = bd.floatValue();
-				//logger.debug("coin:"+ coins.name() +" count:"+ count + " value:"+ value);
+				//logger.debug("coin:"+ coins.name() +" count:"+ count + " value:"+ coinvalue);
 			} catch (Exception e){
 				
 			}

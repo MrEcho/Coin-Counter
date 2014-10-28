@@ -15,7 +15,7 @@ public class Dollar extends CoinTypes {
 
 	@Override
 	public float getValue() {
-		return 1;
+		return 1.0f;
 	}
 
 	@Override

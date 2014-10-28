@@ -20,7 +20,7 @@ public class Dime extends CoinTypes {
 
 	@Override
 	public float getVolume() {
-		return 0.1f;
+		return 24.18f;
 	}
 
 	@Override
